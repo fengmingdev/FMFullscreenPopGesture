@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'FMFullscreenPopGesture'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of FMFullscreenPopGesture.'
+  s.summary          = "Overview FDFullscreenPopGesture An UINavigationController's category"
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,9 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description      = "Overview FDFullscreenPopGesture An UINavigationController's category. Just pod in 2 files and no need for any setups."
 
   s.homepage         = 'https://github.com/fengming/FMFullscreenPopGesture'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'

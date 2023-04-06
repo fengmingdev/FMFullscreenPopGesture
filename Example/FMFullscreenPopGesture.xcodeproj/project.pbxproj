@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11755F6A29DE9F96000E4A1B /* FMListenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11755F6929DE9F96000E4A1B /* FMListenViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* FMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* FMAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* FMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* FMViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -39,9 +39,11 @@
 /* Begin PBXFileReference section */
 		01B97B3A2A4A9861C643F157 /* Pods-FMFullscreenPopGesture_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMFullscreenPopGesture_Tests.debug.xcconfig"; path = "Target Support Files/Pods-FMFullscreenPopGesture_Tests/Pods-FMFullscreenPopGesture_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		053D9A3B30621F18FD3D7A3A /* Pods-FMFullscreenPopGesture_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMFullscreenPopGesture_Tests.release.xcconfig"; path = "Target Support Files/Pods-FMFullscreenPopGesture_Tests/Pods-FMFullscreenPopGesture_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		11755F6829DE9F96000E4A1B /* FMListenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMListenViewController.h; sourceTree = "<group>"; };
+		11755F6929DE9F96000E4A1B /* FMListenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMListenViewController.m; sourceTree = "<group>"; };
 		1F599D4D05989C57CC09CDE2 /* Pods_FMFullscreenPopGesture_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FMFullscreenPopGesture_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		280C638C70F36DD0371922A9 /* Pods_FMFullscreenPopGesture_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FMFullscreenPopGesture_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4DCB25B5668E228EBD977E71 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		4DCB25B5668E228EBD977E71 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* FMFullscreenPopGesture_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FMFullscreenPopGesture_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -52,8 +54,6 @@
 		6003F59B195388D20070C39A /* FMFullscreenPopGesture-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FMFullscreenPopGesture-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* FMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* FMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* FMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* FMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* FMFullscreenPopGesture_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FMFullscreenPopGesture_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -65,8 +65,8 @@
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		92BC555F829F491E3041B073 /* Pods-FMFullscreenPopGesture_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMFullscreenPopGesture_Example.release.xcconfig"; path = "Target Support Files/Pods-FMFullscreenPopGesture_Example/Pods-FMFullscreenPopGesture_Example.release.xcconfig"; sourceTree = "<group>"; };
 		94604E46E3F6978E2EBB7413 /* Pods-FMFullscreenPopGesture_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMFullscreenPopGesture_Example.debug.xcconfig"; path = "Target Support Files/Pods-FMFullscreenPopGesture_Example/Pods-FMFullscreenPopGesture_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		9ACA2FAA01048F5B9752B39F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		AB6F15095AE823E2E9465F79 /* FMFullscreenPopGesture.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = FMFullscreenPopGesture.podspec; path = ../FMFullscreenPopGesture.podspec; sourceTree = "<group>"; };
+		9ACA2FAA01048F5B9752B39F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		AB6F15095AE823E2E9465F79 /* FMFullscreenPopGesture.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FMFullscreenPopGesture.podspec; path = ../FMFullscreenPopGesture.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,9 +135,9 @@
 				6003F59C195388D20070C39A /* FMAppDelegate.h */,
 				6003F59D195388D20070C39A /* FMAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* FMViewController.h */,
-				6003F5A6195388D20070C39A /* FMViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
+				11755F6829DE9F96000E4A1B /* FMListenViewController.h */,
+				11755F6929DE9F96000E4A1B /* FMListenViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -193,7 +193,6 @@
 				01B97B3A2A4A9861C643F157 /* Pods-FMFullscreenPopGesture_Tests.debug.xcconfig */,
 				053D9A3B30621F18FD3D7A3A /* Pods-FMFullscreenPopGesture_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -258,6 +257,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -365,8 +365,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* FMAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* FMViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				11755F6A29DE9F96000E4A1B /* FMListenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

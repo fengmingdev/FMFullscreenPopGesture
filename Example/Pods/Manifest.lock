@@ -1,0 +1,16 @@
+PODS:
+  - FMFullscreenPopGesture (0.1.0)
+
+DEPENDENCIES:
+  - FMFullscreenPopGesture (from `../`)
+
+EXTERNAL SOURCES:
+  FMFullscreenPopGesture:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FMFullscreenPopGesture: c78d46ed2d08c4a6734f78070dfb94983cf400d8
+
+PODFILE CHECKSUM: 3eb3494b756e0ec008586015e9cb67e0cf8224ad
+
+COCOAPODS: 1.11.3

@@ -1,4 +1,9 @@
 # FMFullscreenPopGesture
+override FDFullscreenPopGesture An UINavigationController's category to enable fullscreen pop gesture in an iOS7+ system style with AOP.
+
+# Overview
+
+![snapshot](https://raw.githubusercontent.com/fengmingdev/FMFullscreenPopGesture/master/Snapshots/snapshot0.gif)
 
 [![CI Status](https://img.shields.io/travis/fengming/FMFullscreenPopGesture.svg?style=flat)](https://travis-ci.org/fengming/FMFullscreenPopGesture)
 [![Version](https://img.shields.io/cocoapods/v/FMFullscreenPopGesture.svg?style=flat)](https://cocoapods.org/pods/FMFullscreenPopGesture)

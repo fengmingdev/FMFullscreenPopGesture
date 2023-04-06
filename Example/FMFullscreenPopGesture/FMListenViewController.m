@@ -1,23 +1,31 @@
 //
 //  FMViewController.m
-//  FMFullscreenPopGesture
+//  FullscreenPopGesture
 //
 //  Created by fengming on 04/06/2023.
 //  Copyright (c) 2023 fengming. All rights reserved.
 //
 
-#import "FMViewController.h"
+#import "FMListenViewController.h"
+@import FMFullscreenPopGesture;
 
-@interface FMViewController ()
+@interface FMListenViewController ()
 
 @end
 
-@implementation FMViewController
+@implementation FMListenViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+    self.fd_interactivePopDisabled = YES;
+    
+}
+
+- (void)fd_popDisabledStatus
+{
+    NSLog(@"Disabled scroll left back");
 }
 
 - (void)didReceiveMemoryWarning
