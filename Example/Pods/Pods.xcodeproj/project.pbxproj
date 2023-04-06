@@ -14,7 +14,6 @@
 		4CC3E98259F11C2F5A2648AE249969F7 /* Pods-FMFullscreenPopGesture_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9804F081781FA93084FD063FE8A43565 /* Pods-FMFullscreenPopGesture_Tests-dummy.m */; };
 		83FD7661B9224C046155E28ECA7CA853 /* UINavigationController+FDFullscreenPopGesture.h in Headers */ = {isa = PBXBuildFile; fileRef = 30DB5EBD82DD6A42A8CD7AD9CC39380F /* UINavigationController+FDFullscreenPopGesture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C424449D0D20CC907898C6DBE9D6DDF2 /* FMFullscreenPopGesture-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B8A930C5907825F9B37C35D25E4905 /* FMFullscreenPopGesture-dummy.m */; };
-		D08BA66415BC45EBF2B256F8DA3540B2 /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A307C92C3692A85E08A965CABD60D3 /* ReplaceMe.m */; };
 		DC5F9FC19E10A153BEB31ECA0634F70A /* Pods-FMFullscreenPopGesture_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AEAC8B4C9AE8BCE4C47799E772DF241 /* Pods-FMFullscreenPopGesture_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E93429658DE0F95D8A13CD02CBCEEDD4 /* Pods-FMFullscreenPopGesture_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B7E0951BCED345161F9120EC52CD7FCD /* Pods-FMFullscreenPopGesture_Example-dummy.m */; };
 		F93CC2B0C817D9F764A887285E53FE9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
@@ -46,12 +45,11 @@
 		33866E6AA334A2514BE54F8D4B21A663 /* Pods-FMFullscreenPopGesture_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FMFullscreenPopGesture_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		36C365139766C7DB80FF4E7FC5EF58B7 /* Pods-FMFullscreenPopGesture_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FMFullscreenPopGesture_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3AEAC8B4C9AE8BCE4C47799E772DF241 /* Pods-FMFullscreenPopGesture_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FMFullscreenPopGesture_Tests-umbrella.h"; sourceTree = "<group>"; };
-		3D9501740ECBB5DAFC891BDC0ACF2D5A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		3D9501740ECBB5DAFC891BDC0ACF2D5A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		3DDF7AAD5EC2F4B1842AF4C2EB05D9F2 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 		3F514D6EDCFE4C519FB48916F322FB9A /* FMFullscreenPopGesture-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FMFullscreenPopGesture-umbrella.h"; sourceTree = "<group>"; };
-		46A307C92C3692A85E08A965CABD60D3 /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ReplaceMe.m; path = FMFullscreenPopGesture/Classes/ReplaceMe.m; sourceTree = "<group>"; };
 		49B85DA0D1CFE3BAE1285A1D710F82BB /* Pods-FMFullscreenPopGesture_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FMFullscreenPopGesture_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		57F699B2C633E55FE8956D0B8F9D4100 /* FMFullscreenPopGesture.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = FMFullscreenPopGesture.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		57F699B2C633E55FE8956D0B8F9D4100 /* FMFullscreenPopGesture.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = FMFullscreenPopGesture.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		616207FA78B06396A161A96E28169176 /* FMFullscreenPopGesture */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FMFullscreenPopGesture; path = FMFullscreenPopGesture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB826059B8B6D61FF12E28AA21EC3AD /* Pods-FMFullscreenPopGesture_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FMFullscreenPopGesture_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -63,13 +61,13 @@
 		94B8A930C5907825F9B37C35D25E4905 /* FMFullscreenPopGesture-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FMFullscreenPopGesture-dummy.m"; sourceTree = "<group>"; };
 		9804F081781FA93084FD063FE8A43565 /* Pods-FMFullscreenPopGesture_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FMFullscreenPopGesture_Tests-dummy.m"; sourceTree = "<group>"; };
 		999F27C61466AD9BC704F69CA9FEC2B8 /* Pods-FMFullscreenPopGesture_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FMFullscreenPopGesture_Tests-Info.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A4111A6217E87C74F172DBBDB45160EB /* Pods-FMFullscreenPopGesture_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FMFullscreenPopGesture_Tests.modulemap"; sourceTree = "<group>"; };
 		ABD2E5A3E2C2E152942EE55C92884CE4 /* FMFullscreenPopGesture.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FMFullscreenPopGesture.modulemap; sourceTree = "<group>"; };
 		AE1C3E10877135BBA3F29CEB0AC2CB12 /* Pods-FMFullscreenPopGesture_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-FMFullscreenPopGesture_Tests"; path = Pods_FMFullscreenPopGesture_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B41249636DB20D3D515CB3FEC24ABBFE /* FMFullscreenPopGesture.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FMFullscreenPopGesture.release.xcconfig; sourceTree = "<group>"; };
 		B7E0951BCED345161F9120EC52CD7FCD /* Pods-FMFullscreenPopGesture_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FMFullscreenPopGesture_Example-dummy.m"; sourceTree = "<group>"; };
-		B90D5639A68BA0F8CBCABB17CE449F87 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		B90D5639A68BA0F8CBCABB17CE449F87 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BA1A040B6CAB6D33E17663C1F758956F /* FMFullscreenPopGesture-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FMFullscreenPopGesture-prefix.pch"; sourceTree = "<group>"; };
 		ED239C4F2FE8AE4BCC4C4892E0666E67 /* Pods-FMFullscreenPopGesture_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-FMFullscreenPopGesture_Example"; path = Pods_FMFullscreenPopGesture_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51341A589EAEFE9744B97F23F88856D /* FMFullscreenPopGesture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FMFullscreenPopGesture.debug.xcconfig; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 		80DA4E668612B3CCE945ADE521BB42B7 /* FMFullscreenPopGesture */ = {
 			isa = PBXGroup;
 			children = (
-				46A307C92C3692A85E08A965CABD60D3 /* ReplaceMe.m */,
 				CCEB250D9C010C5586B4227E29ACB11B /* FDFullscreenPopGesture */,
 				0050585721B11C96DACF013C41543843 /* Pod */,
 				4E3FDEB37C2957F04882792C9CFF3474 /* Support Files */,
@@ -392,7 +389,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C424449D0D20CC907898C6DBE9D6DDF2 /* FMFullscreenPopGesture-dummy.m in Sources */,
-				D08BA66415BC45EBF2B256F8DA3540B2 /* ReplaceMe.m in Sources */,
 				F9C85F78FA6A4F33A4206C61EF28FF24 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,8 +571,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
