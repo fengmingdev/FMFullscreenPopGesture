@@ -1,5 +1,5 @@
 # FMFullscreenPopGesture
-override FDFullscreenPopGesture An UINavigationController's category to enable fullscreen pop gesture in an iOS7+ system style with AOP.
+override FDFullscreenPopGesture An UINavigationController's category to enable fullscreen pop gesture in an iOS10+ system style with AOP.
 
 # Overview
 

@@ -19,11 +19,11 @@ Pod::Spec.new do |s|
 
   s.description      = "Overview FDFullscreenPopGesture An UINavigationController's category. Just pod in 2 files and no need for any setups."
 
-  s.homepage         = 'https://github.com/fengming/FMFullscreenPopGesture'
+  s.homepage         = 'https://github.com/fengmingdev/FMFullscreenPopGesture'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'fengming' => '1028708571@qq.com' }
-  s.source           = { :git => 'https://github.com/fengming/FMFullscreenPopGesture.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/fengmingdev/FMFullscreenPopGesture.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
