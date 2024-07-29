@@ -66,7 +66,7 @@
 		92BC555F829F491E3041B073 /* Pods-FMFullscreenPopGesture_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMFullscreenPopGesture_Example.release.xcconfig"; path = "Target Support Files/Pods-FMFullscreenPopGesture_Example/Pods-FMFullscreenPopGesture_Example.release.xcconfig"; sourceTree = "<group>"; };
 		94604E46E3F6978E2EBB7413 /* Pods-FMFullscreenPopGesture_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMFullscreenPopGesture_Example.debug.xcconfig"; path = "Target Support Files/Pods-FMFullscreenPopGesture_Example/Pods-FMFullscreenPopGesture_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		9ACA2FAA01048F5B9752B39F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		AB6F15095AE823E2E9465F79 /* FMFullscreenPopGesture.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FMFullscreenPopGesture.podspec; path = ../FMFullscreenPopGesture.podspec; sourceTree = "<group>"; };
+		AB6F15095AE823E2E9465F79 /* FMFullscreenPopGesture.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FMFullscreenPopGesture.podspec; path = ../FMFullscreenPopGesture.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

@@ -1,9 +1,9 @@
 {
   "name": "FMFullscreenPopGesture",
-  "version": "0.1.0",
+  "version": "1.1",
   "summary": "Overview FDFullscreenPopGesture An UINavigationController's category",
   "description": "Overview FDFullscreenPopGesture An UINavigationController's category. Just pod in 2 files and no need for any setups.",
-  "homepage": "https://github.com/fengming/FMFullscreenPopGesture",
+  "homepage": "https://github.com/fengmingdev/FMFullscreenPopGesture",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,8 +12,8 @@
     "fengming": "1028708571@qq.com"
   },
   "source": {
-    "git": "https://github.com/fengming/FMFullscreenPopGesture.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/fengmingdev/FMFullscreenPopGesture.git",
+    "tag": "1.1"
   },
   "platforms": {
     "ios": "10.0"

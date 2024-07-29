@@ -55,6 +55,10 @@
 /// Default to NO, bars are more likely to show.
 @property (nonatomic, assign) BOOL fd_prefersNavigationBarHidden;
 
+/// Max allowed initial distance to left edge when you begin the interactive pop
+/// gesture. 0 by default, which means it will ignore this limit.
+@property (nonatomic, assign) CGFloat fd_interactivePopMaxAllowedInitialDistanceToLeftEdge;
+
 /// Listening disabled Status
 -(void)fd_popDisabledStatus;
 
