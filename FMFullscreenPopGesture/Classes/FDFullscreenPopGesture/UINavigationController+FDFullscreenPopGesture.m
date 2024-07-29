@@ -41,8 +41,8 @@
     // Ignore when the active view controller doesn't allow interactive pop.
     UIViewController *topViewController = self.navigationController.viewControllers.lastObject;
     if (topViewController.fd_interactivePopDisabled) {
-        CGPoint translation = [gestureRecognizer translationInView:gestureRecognizer.view];
-        if (translation.x > 0) {
+        CGPoint translation = [gestureRecognizer locationInView:gestureRecognizer.view];
+        if (translation.x > 0 && translation.x < topViewController.fd_interactivePopMaxAllowedInitialDistanceToLeftEdge) {
             // Listening disabled Status
             [topViewController fd_popDisabledStatus];
         }
@@ -52,10 +52,6 @@
     // Ignore when the beginning location is beyond max allowed initial distance to left edge.
     CGPoint beginningLocation = [gestureRecognizer locationInView:gestureRecognizer.view];
     CGFloat maxAllowedInitialDistance = topViewController.fd_interactivePopMaxAllowedInitialDistanceToLeftEdge;
-    if (beginningLocation.x > 0) {
-        // Listening disabled Status
-        [topViewController fd_popDisabledStatus];
-    }
     if (maxAllowedInitialDistance > 0 && beginningLocation.x > maxAllowedInitialDistance) {
         return NO;
     }

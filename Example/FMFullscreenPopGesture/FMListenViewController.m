@@ -19,7 +19,7 @@
 {
     [super viewDidLoad];
 	
-//    self.fd_interactivePopDisabled = YES;
+    self.fd_interactivePopDisabled = YES;
     self.fd_interactivePopMaxAllowedInitialDistanceToLeftEdge = 20;
 }
 
