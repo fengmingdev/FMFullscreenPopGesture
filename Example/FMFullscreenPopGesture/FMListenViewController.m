@@ -20,12 +20,20 @@
     [super viewDidLoad];
 	
     self.fd_interactivePopDisabled = YES;
-    self.fd_interactivePopMaxAllowedInitialDistanceToLeftEdge = 20;
+    /// 返回控制 NO: 不允许返回，YES：允许返回
+    __weak typeof(self) weakSelf = self;
+    self.shouldBeginBlock = ^BOOL{
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if (strongSelf.isCheckChanged) {
+            return !(strongSelf.isCheckChanged);
+        };
+        return YES;
+    };
 }
 
-- (void)fd_popDisabledStatus
+- (BOOL)isCheckChanged
 {
-    NSLog(@"Disabled scroll left back");
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning

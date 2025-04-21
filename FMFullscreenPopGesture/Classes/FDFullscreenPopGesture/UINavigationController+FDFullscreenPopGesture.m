@@ -41,11 +41,6 @@
     // Ignore when the active view controller doesn't allow interactive pop.
     UIViewController *topViewController = self.navigationController.viewControllers.lastObject;
     if (topViewController.fd_interactivePopDisabled) {
-        CGPoint translation = [gestureRecognizer locationInView:gestureRecognizer.view];
-        if (translation.x > 0 && translation.x < topViewController.fd_interactivePopMaxAllowedInitialDistanceToLeftEdge) {
-            // Listening disabled Status
-            [topViewController fd_popDisabledStatus];
-        }
         return NO;
     }
     
@@ -68,7 +63,10 @@
     if ((translation.x * multiplier) <= 0) {
         return NO;
     }
-    
+    // Call custom block if exists
+    if (topViewController.shouldBeginBlock) {
+        return topViewController.shouldBeginBlock();
+    }
     return YES;
 }
 
@@ -274,6 +272,16 @@ typedef void (^_FDViewControllerWillAppearInjectBlock)(UIViewController *viewCon
     objc_setAssociatedObject(self, @selector(fd_prefersNavigationBarHidden), @(hidden), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+- (BOOL (^)(void))shouldBeginBlock
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setShouldBeginBlock:(BOOL (^)(void))block
+{
+    objc_setAssociatedObject(self, @selector(shouldBeginBlock), block, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
 
 - (CGFloat)fd_interactivePopMaxAllowedInitialDistanceToLeftEdge
 {
@@ -288,10 +296,6 @@ typedef void (^_FDViewControllerWillAppearInjectBlock)(UIViewController *viewCon
 {
     SEL key = @selector(fd_interactivePopMaxAllowedInitialDistanceToLeftEdge);
     objc_setAssociatedObject(self, key, @(MAX(0, distance)), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (void)fd_popDisabledStatus {
-    //TODO:
 }
 
 @end

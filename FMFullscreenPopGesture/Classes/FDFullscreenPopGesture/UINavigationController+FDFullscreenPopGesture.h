@@ -58,8 +58,7 @@
 /// Max allowed initial distance to left edge when you begin the interactive pop
 /// gesture. 0 by default, which means it will ignore this limit.
 @property (nonatomic, assign) CGFloat fd_interactivePopMaxAllowedInitialDistanceToLeftEdge;
-
-/// Listening disabled Status
--(void)fd_popDisabledStatus;
+/// 回调传值判断, NO: 不允许返回，YES：允许返回
+@property (nonatomic, copy) BOOL (^shouldBeginBlock)(void);
 
 @end
