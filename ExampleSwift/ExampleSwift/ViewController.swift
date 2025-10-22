@@ -41,8 +41,16 @@ class ViewController: UIViewController {
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         tableView.delegate = self
         tableView.dataSource = self
+        // 使用支持副标题的 cell 样式
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         view.addSubview(tableView)
+    }
+
+    // 重写此方法以确保使用正确的 cell 样式
+    private func createCell(for indexPath: IndexPath) -> UITableViewCell {
+        // 创建支持副标题的 cell
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
+        return cell
     }
 }
 
@@ -55,14 +63,13 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        // 创建支持副标题的 cell（iOS 13 兼容）
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
         let example = examples[indexPath.row]
 
-        var config = cell.defaultContentConfiguration()
-        config.text = example.0
-        config.secondaryText = example.1
-        config.secondaryTextProperties.numberOfLines = 0
-        cell.contentConfiguration = config
+        cell.textLabel?.text = example.0
+        cell.detailTextLabel?.text = example.1
+        cell.detailTextLabel?.numberOfLines = 0
         cell.accessoryType = .disclosureIndicator
 
         return cell

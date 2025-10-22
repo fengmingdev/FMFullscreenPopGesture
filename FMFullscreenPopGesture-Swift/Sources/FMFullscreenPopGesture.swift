@@ -53,10 +53,10 @@ import UIKit
         struct Static {
             static let token: Void = {
                 // 设置UIViewController的Method Swizzling
-                UIViewController.setupMethodSwizzling()
+                UIViewController.fm_setupMethodSwizzling()
 
                 // 设置UINavigationController的Method Swizzling
-                UINavigationController.setupMethodSwizzling()
+                UINavigationController.fm_setupMethodSwizzling()
             }()
         }
         _ = Static.token

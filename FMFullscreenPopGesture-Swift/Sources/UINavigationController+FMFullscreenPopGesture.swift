@@ -109,7 +109,7 @@ public extension UINavigationController {
     // MARK: - Method Swizzling Setup
 
     /// 对应Objective-C的 +load 方法
-    static func setupMethodSwizzling() {
+    internal static func fm_setupMethodSwizzling() {
         // 使用dispatch_once保证只执行一次
         struct Static {
             static var token: Void = {

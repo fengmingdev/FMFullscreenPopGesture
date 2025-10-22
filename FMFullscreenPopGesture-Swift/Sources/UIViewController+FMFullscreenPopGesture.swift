@@ -58,33 +58,24 @@ internal extension UIViewController {
     // MARK: - Method Swizzling Setup
 
     /// 对应Objective-C的 +load 方法
-    static func setupMethodSwizzling() {
+    internal static func fm_setupMethodSwizzling() {
         // 使用dispatch_once保证只执行一次
         struct Static {
             static var token: Void = {
                 // 交换 viewWillAppear:
-                swizzleMethod(
-                    originalSelector: #selector(UIViewController.viewWillAppear(_:)),
-                    swizzledSelector: #selector(UIViewController.fm_viewWillAppear(_:))
-                )
+                if let originalMethod = class_getInstanceMethod(UIViewController.self, #selector(UIViewController.viewWillAppear(_:))),
+                   let swizzledMethod = class_getInstanceMethod(UIViewController.self, #selector(UIViewController.fm_viewWillAppear(_:))) {
+                    method_exchangeImplementations(originalMethod, swizzledMethod)
+                }
 
                 // 交换 viewWillDisappear:
-                swizzleMethod(
-                    originalSelector: #selector(UIViewController.viewWillDisappear(_:)),
-                    swizzledSelector: #selector(UIViewController.fm_viewWillDisappear(_:))
-                )
+                if let originalMethod = class_getInstanceMethod(UIViewController.self, #selector(UIViewController.viewWillDisappear(_:))),
+                   let swizzledMethod = class_getInstanceMethod(UIViewController.self, #selector(UIViewController.fm_viewWillDisappear(_:))) {
+                    method_exchangeImplementations(originalMethod, swizzledMethod)
+                }
             }()
         }
         _ = Static.token
-    }
-
-    private static func swizzleMethod(originalSelector: Selector, swizzledSelector: Selector) {
-        guard let originalMethod = class_getInstanceMethod(UIViewController.self, originalSelector),
-              let swizzledMethod = class_getInstanceMethod(UIViewController.self, swizzledSelector) else {
-            return
-        }
-
-        method_exchangeImplementations(originalMethod, swizzledMethod)
     }
 
     // MARK: - Swizzled Methods
