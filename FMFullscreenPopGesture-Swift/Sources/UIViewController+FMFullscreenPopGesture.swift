@@ -70,6 +70,13 @@ internal extension UIViewController {
 
         // IMPORTANT: 确保系统手势始终被禁用，使用我们的自定义手势
         if let navigationController = self.navigationController {
+            let systemGesture = navigationController.interactivePopGestureRecognizer
+            let customGesture = navigationController.fm_fullscreenPopGestureRecognizer
+
+            print("🔧 [fm_viewWillAppear] \(type(of: self))")
+            print("   System gesture: enabled=\(systemGesture?.isEnabled ?? false), delegate=\(String(describing: systemGesture?.delegate))")
+            print("   Custom gesture: enabled=\(customGesture.isEnabled), delegate=\(String(describing: customGesture.delegate))")
+
             navigationController.interactivePopGestureRecognizer?.isEnabled = false
         }
     }

@@ -35,8 +35,11 @@ internal final class FMFullscreenPopGestureRecognizerDelegate: NSObject, UIGestu
 
     /// 对应Objective-C的 - (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        print("🎯 [FMFullscreenPopGesture] gestureRecognizerShouldBegin called for: \(gestureRecognizer)")
+
         guard let navigationController = navigationController,
               let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer else {
+            print("   ❌ No navigationController or not a pan gesture")
             return false
         }
 
