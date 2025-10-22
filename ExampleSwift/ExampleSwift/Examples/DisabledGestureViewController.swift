@@ -17,7 +17,6 @@ class DisabledGestureViewController: UIViewController {
 
         // 禁用滑动返回
         fm_interactivePopDisabled = true
-        print("✅ [DisabledGestureViewController] viewDidLoad - fm_interactivePopDisabled = true")
 
         let label = UILabel()
         label.text = """
@@ -43,17 +42,4 @@ class DisabledGestureViewController: UIViewController {
         ])
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("✅ [DisabledGestureViewController] viewWillAppear - System gesture enabled: \(navigationController?.interactivePopGestureRecognizer?.isEnabled ?? true)")
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("✅ [DisabledGestureViewController] viewDidAppear - System gesture enabled: \(navigationController?.interactivePopGestureRecognizer?.isEnabled ?? true)")
-    }
-    
-    deinit {
-        print("DisabledGestureViewController deinit")
-    }
 }

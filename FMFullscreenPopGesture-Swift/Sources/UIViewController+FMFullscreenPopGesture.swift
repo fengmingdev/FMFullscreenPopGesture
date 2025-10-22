@@ -70,27 +70,17 @@ internal extension UIViewController {
 
         // IMPORTANT: 确保系统手势始终被禁用，使用我们的自定义手势
         if let navigationController = self.navigationController {
-            let systemGesture = navigationController.interactivePopGestureRecognizer
-            let customGesture = navigationController.fm_fullscreenPopGestureRecognizer
-
-            print("🔧 [fm_viewWillAppear] \(type(of: self))")
-            print("   System gesture: enabled=\(systemGesture?.isEnabled ?? false), delegate=\(String(describing: systemGesture?.delegate))")
-            print("   Custom gesture: enabled=\(customGesture.isEnabled), delegate=\(String(describing: customGesture.delegate))")
-
-            // CRITICAL: 禁用系统手势
+            // CRITICAL: 禁用主系统手势
             navigationController.interactivePopGestureRecognizer?.isEnabled = false
 
-            // CRITICAL: 禁用所有附加到同一个view的其他pan手势（可能是系统的其他手势）
-            if let gestureView = systemGesture?.view {
-                print("   🔍 Checking all gestures on the gesture view:")
+            // CRITICAL: 禁用所有附加到同一个view的其他系统pan手势
+            // iOS可能有多个系统手势(edgeSwipe, contentSwipe等)，需要全部禁用
+            if let gestureView = navigationController.interactivePopGestureRecognizer?.view {
+                let customGesture = navigationController.fm_fullscreenPopGestureRecognizer
                 for gesture in gestureView.gestureRecognizers ?? [] {
                     if let panGesture = gesture as? UIPanGestureRecognizer,
                        panGesture !== customGesture {
-                        print("      Found pan gesture: \(panGesture), enabled=\(panGesture.isEnabled)")
-                        if panGesture.isEnabled {
-                            print("      ⚠️ Disabling this pan gesture!")
-                            panGesture.isEnabled = false
-                        }
+                        panGesture.isEnabled = false
                     }
                 }
             }
