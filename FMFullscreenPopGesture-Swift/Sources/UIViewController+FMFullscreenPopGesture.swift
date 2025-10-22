@@ -72,22 +72,13 @@ internal extension UIViewController {
         if let navigationController = self.navigationController {
             let systemGesture = navigationController.interactivePopGestureRecognizer
             let customGesture = navigationController.fm_fullscreenPopGestureRecognizer
-            let ourDelegate = navigationController.value(forKey: "fm_popGestureRecognizerDelegate")
 
             print("🔧 [fm_viewWillAppear] \(type(of: self))")
             print("   System gesture: enabled=\(systemGesture?.isEnabled ?? false), delegate=\(String(describing: systemGesture?.delegate))")
             print("   Custom gesture: enabled=\(customGesture.isEnabled), delegate=\(String(describing: customGesture.delegate))")
 
-            // CRITICAL: 禁用系统手势，并确保它的delegate不是我们的
+            // CRITICAL: 禁用系统手势
             navigationController.interactivePopGestureRecognizer?.isEnabled = false
-
-            // 如果系统手势的delegate被错误地设置为我们的delegate，重置它
-            if let systemDelegate = systemGesture?.delegate,
-               let ourDelegateObj = ourDelegate as AnyObject?,
-               systemDelegate === ourDelegateObj {
-                print("   ⚠️ WARNING: System gesture delegate is set to our delegate! Resetting to nil.")
-                navigationController.interactivePopGestureRecognizer?.delegate = nil
-            }
         }
     }
 
