@@ -55,29 +55,6 @@ internal extension UIViewController {
         }
     }
 
-    // MARK: - Method Swizzling Setup
-
-    /// 对应Objective-C的 +load 方法
-    internal static func fm_setupMethodSwizzling() {
-        // 使用dispatch_once保证只执行一次
-        struct Static {
-            static var token: Void = {
-                // 交换 viewWillAppear:
-                if let originalMethod = class_getInstanceMethod(UIViewController.self, #selector(UIViewController.viewWillAppear(_:))),
-                   let swizzledMethod = class_getInstanceMethod(UIViewController.self, #selector(UIViewController.fm_viewWillAppear(_:))) {
-                    method_exchangeImplementations(originalMethod, swizzledMethod)
-                }
-
-                // 交换 viewWillDisappear:
-                if let originalMethod = class_getInstanceMethod(UIViewController.self, #selector(UIViewController.viewWillDisappear(_:))),
-                   let swizzledMethod = class_getInstanceMethod(UIViewController.self, #selector(UIViewController.fm_viewWillDisappear(_:))) {
-                    method_exchangeImplementations(originalMethod, swizzledMethod)
-                }
-            }()
-        }
-        _ = Static.token
-    }
-
     // MARK: - Swizzled Methods
 
     /// 对应Objective-C的 - (void)fd_viewWillAppear:(BOOL)animated

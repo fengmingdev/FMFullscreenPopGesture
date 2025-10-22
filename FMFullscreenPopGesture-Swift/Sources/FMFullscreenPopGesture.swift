@@ -21,6 +21,7 @@
 // SOFTWARE.
 
 import UIKit
+import ObjectiveC
 
 /// FMFullscreenPopGesture 主入口类
 ///
@@ -53,12 +54,59 @@ import UIKit
         struct Static {
             static let token: Void = {
                 // 设置UIViewController的Method Swizzling
-                UIViewController.fm_setupMethodSwizzling()
+                setupViewControllerSwizzling()
 
                 // 设置UINavigationController的Method Swizzling
-                UINavigationController.fm_setupMethodSwizzling()
+                setupNavigationControllerSwizzling()
             }()
         }
         _ = Static.token
+    }
+
+    /// 设置 UIViewController 的 Method Swizzling
+    private static func setupViewControllerSwizzling() {
+        // 交换 viewWillAppear:
+        if let originalMethod = class_getInstanceMethod(UIViewController.self, #selector(UIViewController.viewWillAppear(_:))),
+           let swizzledMethod = class_getInstanceMethod(UIViewController.self, #selector(UIViewController.fm_viewWillAppear(_:))) {
+            method_exchangeImplementations(originalMethod, swizzledMethod)
+        }
+
+        // 交换 viewWillDisappear:
+        if let originalMethod = class_getInstanceMethod(UIViewController.self, #selector(UIViewController.viewWillDisappear(_:))),
+           let swizzledMethod = class_getInstanceMethod(UIViewController.self, #selector(UIViewController.fm_viewWillDisappear(_:))) {
+            method_exchangeImplementations(originalMethod, swizzledMethod)
+        }
+    }
+
+    /// 设置 UINavigationController 的 Method Swizzling
+    private static func setupNavigationControllerSwizzling() {
+        let originalSelector = #selector(UINavigationController.pushViewController(_:animated:))
+        let swizzledSelector = #selector(UINavigationController.fm_pushViewController(_:animated:))
+
+        guard let originalMethod = class_getInstanceMethod(UINavigationController.self, originalSelector),
+              let swizzledMethod = class_getInstanceMethod(UINavigationController.self, swizzledSelector) else {
+            return
+        }
+
+        // 尝试添加方法（处理可能不存在的情况）
+        let didAddMethod = class_addMethod(
+            UINavigationController.self,
+            originalSelector,
+            method_getImplementation(swizzledMethod),
+            method_getTypeEncoding(swizzledMethod)
+        )
+
+        if didAddMethod {
+            // 方法不存在，替换为原始实现
+            class_replaceMethod(
+                UINavigationController.self,
+                swizzledSelector,
+                method_getImplementation(originalMethod),
+                method_getTypeEncoding(originalMethod)
+            )
+        } else {
+            // 方法已存在，直接交换
+            method_exchangeImplementations(originalMethod, swizzledMethod)
+        }
     }
 }

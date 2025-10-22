@@ -106,48 +106,6 @@ public extension UINavigationController {
         return delegate
     }
 
-    // MARK: - Method Swizzling Setup
-
-    /// 对应Objective-C的 +load 方法
-    internal static func fm_setupMethodSwizzling() {
-        // 使用dispatch_once保证只执行一次
-        struct Static {
-            static var token: Void = {
-                let originalClass = UINavigationController.self
-
-                let originalSelector = #selector(UINavigationController.pushViewController(_:animated:))
-                let swizzledSelector = #selector(UINavigationController.fm_pushViewController(_:animated:))
-
-                guard let originalMethod = class_getInstanceMethod(originalClass, originalSelector),
-                      let swizzledMethod = class_getInstanceMethod(originalClass, swizzledSelector) else {
-                    return
-                }
-
-                // 尝试添加方法（处理可能不存在的情况）
-                let didAddMethod = class_addMethod(
-                    originalClass,
-                    originalSelector,
-                    method_getImplementation(swizzledMethod),
-                    method_getTypeEncoding(swizzledMethod)
-                )
-
-                if didAddMethod {
-                    // 方法不存在，替换为原始实现
-                    class_replaceMethod(
-                        originalClass,
-                        swizzledSelector,
-                        method_getImplementation(originalMethod),
-                        method_getTypeEncoding(originalMethod)
-                    )
-                } else {
-                    // 方法已存在，直接交换
-                    method_exchangeImplementations(originalMethod, swizzledMethod)
-                }
-            }()
-        }
-        _ = Static.token
-    }
-
     // MARK: - Swizzled Methods
 
     /// 对应Objective-C的 - (void)fd_pushViewController:(UIViewController *)viewController animated:(BOOL)animated
