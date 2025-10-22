@@ -8,33 +8,37 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FMFullscreenPopGesture'
-  s.version          = '1.1'
-  s.summary          = "Overview FDFullscreenPopGesture An UINavigationController's category"
+  s.version          = '2.0.0'
+  s.summary          = 'A UINavigationController\'s category to enable fullscreen pop gesture in Swift.'
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.description      = <<-DESC
+  An UINavigationController's category to enable fullscreen pop gesture in an iOS7+ system style with Swift implementation.
 
-  s.description      = "Overview FDFullscreenPopGesture An UINavigationController's category. Just pod in 2 files and no need for any setups."
+  This is a Swift rewrite of the original Objective-C version (https://github.com/fengmingdev/FMFullscreenPopGesture).
+
+  Features:
+  - ✅ Fullscreen pan gesture support
+  - ✅ Per-view-controller control
+  - ✅ Custom gesture begin logic
+  - ✅ Limited trigger area support
+  - ✅ Navigation bar appearance management
+  - ✅ RTL layout support
+  - ✅ iOS 13.0+ support
+  - ✅ Swift Package Manager support
+                       DESC
 
   s.homepage         = 'https://github.com/fengmingdev/FMFullscreenPopGesture'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'fengming' => '1028708571@qq.com' }
+  s.author           = { 'fengming' => 'your@email.com' }
   s.source           = { :git => 'https://github.com/fengmingdev/FMFullscreenPopGesture.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '13.0'
+  s.swift_version = '5.5'
 
-  s.source_files = 'FMFullscreenPopGesture/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'FMFullscreenPopGesture' => ['FMFullscreenPopGesture/Assets/*.png']
-  # }
+  s.source_files = 'FMFullscreenPopGesture-Swift/Sources/**/*.swift'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.frameworks = 'UIKit'
+
+  # Pod dependencies
   # s.dependency 'AFNetworking', '~> 2.3'
 end

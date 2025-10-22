@@ -1,4 +1,4 @@
-# FMFullscreenPopGesture
+# FMFullscreenPopGesture (Swift Version)
 
 [![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/fengmingdev/FMFullscreenPopGesture)
 [![Platform](https://img.shields.io/badge/platform-iOS%2013.0%2B-lightgrey.svg)](https://github.com/fengmingdev/FMFullscreenPopGesture)
@@ -7,11 +7,13 @@
 
 FMFullscreenPopGesture 是一个 UINavigationController 的扩展库，用于在 iOS 13+ 系统中启用**全屏滑动返回手势**。
 
-**本项目包含两个版本：**
-- **Objective-C 版本** (v1.x) - 经典的 Objective-C 实现
-- **Swift 版本** (v2.x) - 全新的 Swift 重构版本
+这是对原 Objective-C 版本的 **Swift 翻译式重构**，保持 100% API 兼容性，同时利用 Swift 语言特性提供更好的类型安全和开发体验。
 
-## 🌟 特性
+## 📖 原版项目
+
+本项目是对 [forkingdog/FDFullscreenPopGesture](https://github.com/forkingdog/FDFullscreenPopGesture) 的改进版本的 Swift 重写。
+
+## ✨ 特性
 
 - ✅ **全屏滑动返回**：从屏幕任意位置滑动返回，而非仅限边缘
 - ✅ **按视图控制器控制**：每个 ViewController 可独立配置
@@ -25,9 +27,7 @@ FMFullscreenPopGesture 是一个 UINavigationController 的扩展库，用于在
 
 ## 📦 安装
 
-### Swift 版本 (推荐)
-
-#### Swift Package Manager
+### Swift Package Manager (推荐)
 
 在 Xcode 中：
 1. 选择 `File` → `Add Packages...`
@@ -43,7 +43,7 @@ dependencies: [
 ]
 ```
 
-#### CocoaPods
+### CocoaPods
 
 在 `Podfile` 中添加：
 
@@ -57,21 +57,9 @@ pod 'FMFullscreenPopGesture', '~> 2.0'
 pod install
 ```
 
-### Objective-C 版本
-
-#### CocoaPods
-
-在 `Podfile` 中添加：
-
-```ruby
-pod 'FMFullscreenPopGesture', '~> 1.1'
-```
-
 ## 🚀 使用方法
 
-### Swift 版本
-
-#### 1. 初始化
+### 1. 初始化
 
 在 `AppDelegate.swift` 中导入并初始化：
 
@@ -92,9 +80,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-#### 2. 基础使用（自动生效）
+### 2. 基础使用（自动生效）
 
-一旦完成初始化，所有 `UINavigationController` 都会**自动支持全屏滑动返回**！
+一旦完成初始化，所有 `UINavigationController` 都会**自动支持全屏滑动返回**，无需额外代码！
 
 ```swift
 import UIKit
@@ -108,7 +96,7 @@ class MyViewController: UIViewController {
 }
 ```
 
-#### 3. 禁用返回手势
+### 3. 禁用返回手势
 
 ```swift
 import FMFullscreenPopGesture
@@ -123,7 +111,7 @@ class EditViewController: UIViewController {
 }
 ```
 
-#### 4. 限制触发区域
+### 4. 限制触发区域
 
 ```swift
 import FMFullscreenPopGesture
@@ -138,7 +126,7 @@ class CustomViewController: UIViewController {
 }
 ```
 
-#### 5. 自定义返回逻辑
+### 5. 自定义返回逻辑（推荐）
 
 ```swift
 import FMFullscreenPopGesture
@@ -162,10 +150,23 @@ class FormViewController: UIViewController {
             return true  // 允许返回
         }
     }
+
+    private func showSaveAlert() {
+        let alert = UIAlertController(
+            title: "未保存",
+            message: "您有未保存的修改，确定要离开吗？",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel))
+        alert.addAction(UIAlertAction(title: "离开", style: .destructive) { [weak self] _ in
+            self?.navigationController?.popViewController(animated: true)
+        })
+        present(alert, animated: true)
+    }
 }
 ```
 
-#### 6. 隐藏导航栏
+### 6. 隐藏导航栏
 
 ```swift
 import FMFullscreenPopGesture
@@ -180,79 +181,97 @@ class FullscreenViewController: UIViewController {
 }
 ```
 
-### Objective-C 版本
+### 7. 禁用基于视图控制器的导航栏管理
 
-Objective-C 版本无需手动初始化，会自动生效。使用 `fd_` 前缀的 API：
+```swift
+import FMFullscreenPopGesture
 
-```objc
-#import "UINavigationController+FDFullscreenPopGesture.h"
+class MyNavigationController: UINavigationController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-// 禁用返回手势
-self.fd_interactivePopDisabled = YES;
-
-// 限制触发区域
-self.fd_interactivePopMaxAllowedInitialDistanceToLeftEdge = 50.0;
-
-// 自定义返回逻辑
-__weak typeof(self) weakSelf = self;
-self.shouldBeginBlock = ^BOOL{
-    __strong typeof(weakSelf) strongSelf = weakSelf;
-    return !strongSelf.hasChanges;
-};
-
-// 隐藏导航栏
-self.fd_prefersNavigationBarHidden = YES;
+        // 禁用自动导航栏管理，使用全局设置
+        fm_viewControllerBasedNavigationBarAppearanceEnabled = false
+    }
+}
 ```
 
 ## 📚 API 文档
 
-### Swift 版本
-
-#### UIViewController 扩展
+### UIViewController 扩展
 
 | 属性 | 类型 | 默认值 | 说明 |
 |------|------|--------|------|
 | `fm_interactivePopDisabled` | `Bool` | `false` | 是否禁用滑动返回手势 |
 | `fm_prefersNavigationBarHidden` | `Bool` | `false` | 是否隐藏导航栏 |
 | `fm_interactivePopMaxAllowedInitialDistanceToLeftEdge` | `CGFloat` | `0` | 手势触发的最大左边距（0表示无限制） |
-| `fm_shouldBeginBlock` | `(() -> Bool)?` | `nil` | 自定义返回手势判断逻辑 |
+| `fm_shouldBeginBlock` | `(() -> Bool)?` | `nil` | 自定义返回手势判断逻辑<br>`true`：允许返回<br>`false`：不允许返回 |
 
-#### UINavigationController 扩展
+### UINavigationController 扩展
 
 | 属性 | 类型 | 默认值 | 说明 |
 |------|------|--------|------|
 | `fm_fullscreenPopGestureRecognizer` | `UIPanGestureRecognizer` | - | 全屏滑动返回手势识别器（只读） |
 | `fm_viewControllerBasedNavigationBarAppearanceEnabled` | `Bool` | `true` | 是否启用基于视图控制器的导航栏外观管理 |
 
-### Objective-C 版本
+## 🔄 从 Objective-C 版本迁移
 
-#### UIViewController 扩展
+### API 对比
 
-| 属性 | 类型 | 默认值 | 说明 |
-|------|------|--------|------|
-| `fd_interactivePopDisabled` | `BOOL` | `NO` | 是否禁用滑动返回手势 |
-| `fd_prefersNavigationBarHidden` | `BOOL` | `NO` | 是否隐藏导航栏 |
-| `fd_interactivePopMaxAllowedInitialDistanceToLeftEdge` | `CGFloat` | `0` | 手势触发的最大左边距 |
-| `shouldBeginBlock` | `BOOL(^)(void)` | `nil` | 自定义返回手势判断逻辑 |
+| Objective-C | Swift | 说明 |
+|-------------|-------|------|
+| `fd_fullscreenPopGestureRecognizer` | `fm_fullscreenPopGestureRecognizer` | 前缀从 `fd_` 改为 `fm_` |
+| `fd_viewControllerBasedNavigationBarAppearanceEnabled` | `fm_viewControllerBasedNavigationBarAppearanceEnabled` | 前缀从 `fd_` 改为 `fm_` |
+| `fd_interactivePopDisabled` | `fm_interactivePopDisabled` | 前缀从 `fd_` 改为 `fm_` |
+| `fd_prefersNavigationBarHidden` | `fm_prefersNavigationBarHidden` | 前缀从 `fd_` 改为 `fm_` |
+| `fd_interactivePopMaxAllowedInitialDistanceToLeftEdge` | `fm_interactivePopMaxAllowedInitialDistanceToLeftEdge` | 前缀从 `fd_` 改为 `fm_` |
+| `shouldBeginBlock` | `fm_shouldBeginBlock` | 添加了 `fm_` 前缀 |
 
-#### UINavigationController 扩展
+### 迁移步骤
 
-| 属性 | 类型 | 默认值 | 说明 |
-|------|------|--------|------|
-| `fd_fullscreenPopGestureRecognizer` | `UIPanGestureRecognizer` | - | 全屏滑动返回手势识别器（只读） |
-| `fd_viewControllerBasedNavigationBarAppearanceEnabled` | `BOOL` | `YES` | 是否启用基于视图控制器的导航栏外观管理 |
+1. **更新依赖**
+   ```ruby
+   # Podfile
+   # 注释掉旧版本
+   # pod 'FMFullscreenPopGesture', '~> 1.1'
 
-## 🔄 版本对比
+   # 使用新版本
+   pod 'FMFullscreenPopGesture', '~> 2.0'
+   ```
 
-| 特性 | Objective-C (v1.x) | Swift (v2.x) |
-|------|-------------------|--------------|
-| **API 前缀** | `fd_` / `shouldBeginBlock` | `fm_` / `fm_shouldBeginBlock` |
-| **初始化方式** | 自动（`+load`） | 手动调用 `setup()` |
-| **类型安全** | 弱类型 | 强类型 |
-| **闭包语法** | Block | Closure |
-| **可选值** | `nil` 检查 | `Optional` |
-| **最低iOS版本** | iOS 8.0+ | iOS 13.0+ |
-| **Swift版本** | - | 5.5+ |
+2. **初始化（新增）**
+   ```swift
+   // AppDelegate.swift
+   import FMFullscreenPopGesture
+
+   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+       FMFullscreenPopGesture.setup()  // 新增这一行
+       return true
+   }
+   ```
+
+3. **批量替换 API**
+   - 使用 Xcode 的 Find & Replace 功能
+   - 将所有 `fd_` 替换为 `fm_`
+   - 将 `shouldBeginBlock` 替换为 `fm_shouldBeginBlock`
+
+4. **Block 语法转换**
+   ```objc
+   // Objective-C
+   __weak typeof(self) weakSelf = self;
+   self.shouldBeginBlock = ^BOOL{
+       __strong typeof(weakSelf) strongSelf = weakSelf;
+       return !strongSelf.hasChanges;
+   };
+   ```
+
+   ```swift
+   // Swift
+   fm_shouldBeginBlock = { [weak self] in
+       guard let self = self else { return true }
+       return !self.hasChanges
+   }
+   ```
 
 ## 🎯 实现原理
 
@@ -274,31 +293,21 @@ self.fd_prefersNavigationBarHidden = YES;
    - 在 `viewWillAppear:` 中注入导航栏显示/隐藏逻辑
    - 支持视图控制器级别的导航栏外观控制
 
-## 📱 示例项目
+### 与 Objective-C 版本的区别
 
-本仓库包含两个示例项目：
-
-- **Example** - Objective-C 版本示例
-- **ExampleSwift** - Swift 版本示例
-
-运行示例项目：
-
-```bash
-cd ExampleSwift
-pod install
-open ExampleSwift.xcworkspace
-```
+| 特性 | Objective-C | Swift |
+|------|-------------|-------|
+| Extension 语法 | Category | Extension |
+| 闭包语法 | Block | Closure |
+| 类型安全 | 弱类型 | 强类型 |
+| 可选值处理 | `nil` 检查 | `Optional` |
+| 初始化方式 | `+load` 方法 | 手动调用 `setup()` |
 
 ## ⚙️ 系统要求
 
-### Swift 版本
 - **iOS**: 13.0+
 - **Swift**: 5.5+
 - **Xcode**: 13.0+
-
-### Objective-C 版本
-- **iOS**: 8.0+
-- **Xcode**: 10.0+
 
 ## 📄 许可证
 
@@ -317,9 +326,9 @@ FMFullscreenPopGesture 采用 MIT 许可证。详见 [LICENSE](LICENSE) 文件�
 
 ## 🔗 相关链接
 
-- [Swift 版本详细文档](FMFullscreenPopGesture-Swift/README.md)
-- [项目结构说明](FMFullscreenPopGesture-Swift/PROJECT_STRUCTURE.md)
-- [更新日志](FMFullscreenPopGesture-Swift/CHANGELOG.md)
+- [Objective-C 版本](https://github.com/fengmingdev/FMFullscreenPopGesture)
+- [示例项目](./Example)
+- [更新日志](CHANGELOG.md)
 
 ---
 
