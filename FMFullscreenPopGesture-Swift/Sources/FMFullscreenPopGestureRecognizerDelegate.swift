@@ -43,6 +43,15 @@ internal final class FMFullscreenPopGestureRecognizerDelegate: NSObject, UIGestu
             return false
         }
 
+        // CRITICAL: 只处理我们自己的自定义手势，忽略系统手势
+        // 系统手势应该被禁用，但如果它的delegate被错误地设置为我们，我们必须拒绝它
+        if gestureRecognizer !== navigationController.fm_fullscreenPopGestureRecognizer {
+            print("   ❌ This is NOT our custom gesture, it's the system gesture! Rejecting.")
+            return false
+        }
+
+        print("   ✅ This is our custom gesture, proceeding with checks...")
+
         // Ignore when no view controller is pushed into the navigation stack.
         if navigationController.viewControllers.count <= 1 {
             return false
