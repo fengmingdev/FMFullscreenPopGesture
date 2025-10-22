@@ -79,6 +79,21 @@ internal extension UIViewController {
 
             // CRITICAL: 禁用系统手势
             navigationController.interactivePopGestureRecognizer?.isEnabled = false
+
+            // CRITICAL: 禁用所有附加到同一个view的其他pan手势（可能是系统的其他手势）
+            if let gestureView = systemGesture?.view {
+                print("   🔍 Checking all gestures on the gesture view:")
+                for gesture in gestureView.gestureRecognizers ?? [] {
+                    if let panGesture = gesture as? UIPanGestureRecognizer,
+                       panGesture !== customGesture {
+                        print("      Found pan gesture: \(panGesture), enabled=\(panGesture.isEnabled)")
+                        if panGesture.isEnabled {
+                            print("      ⚠️ Disabling this pan gesture!")
+                            panGesture.isEnabled = false
+                        }
+                    }
+                }
+            }
         }
     }
 
