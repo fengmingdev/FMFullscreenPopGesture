@@ -131,6 +131,10 @@ public extension UINavigationController {
 
             // Disable the onboard gesture recognizer.
             interactivePopGestureRecognizer?.isEnabled = false
+
+            print("🎯 [FMFullscreenPopGesture] Setup completed:")
+            print("   - Custom gesture added: \(fm_fullscreenPopGestureRecognizer)")
+            print("   - System gesture disabled: \(interactivePopGestureRecognizer?.isEnabled == false)")
         }
 
         // Handle preferred navigation bar appearance.

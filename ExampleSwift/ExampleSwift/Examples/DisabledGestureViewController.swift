@@ -20,6 +20,12 @@ class DisabledGestureViewController: UIViewController {
         print("✅ [DisabledGestureViewController] Set fm_interactivePopDisabled = true")
         print("✅ [DisabledGestureViewController] Verify: fm_interactivePopDisabled = \(fm_interactivePopDisabled)")
 
+        // 额外检查: 验证系统手势是否被禁用
+        if let navController = navigationController {
+            print("🔍 [DisabledGestureViewController] System gesture enabled: \(navController.interactivePopGestureRecognizer?.isEnabled ?? false)")
+            print("🔍 [DisabledGestureViewController] Custom gesture: \(navController.fm_fullscreenPopGestureRecognizer)")
+        }
+
         let label = UILabel()
         label.text = """
         🚫 滑动返回已禁用
