@@ -63,46 +63,64 @@ internal final class FMFullscreenPopGestureRecognizerDelegate: NSObject, UIGestu
 
         // Ignore when no view controller is pushed into the navigation stack.
         if navigationController.viewControllers.count <= 1 {
+            print("   ❌ Stack has <= 1 VC, rejecting")
             return false
         }
+        print("   ✅ Stack check passed: \(navigationController.viewControllers.count) VCs")
 
         // Ignore when the active view controller doesn't allow interactive pop.
         guard let topViewController = navigationController.viewControllers.last else {
+            print("   ❌ No top VC, rejecting")
             return false
         }
+        print("   ✅ Top VC: \(type(of: topViewController))")
 
+        print("   🔍 Checking fm_interactivePopDisabled: \(topViewController.fm_interactivePopDisabled)")
         if topViewController.fm_interactivePopDisabled {
+            print("   ❌ fm_interactivePopDisabled = true, rejecting gesture")
             return false
         }
+        print("   ✅ fm_interactivePopDisabled = false, continuing...")
 
         // Ignore when the beginning location is beyond max allowed initial distance to left edge.
         let beginningLocation = panGestureRecognizer.location(in: panGestureRecognizer.view)
         let maxAllowedInitialDistance = topViewController.fm_interactivePopMaxAllowedInitialDistanceToLeftEdge
+        print("   🔍 Location check: beginningLocation.x=\(beginningLocation.x), maxAllowed=\(maxAllowedInitialDistance)")
         if maxAllowedInitialDistance > 0 && beginningLocation.x > maxAllowedInitialDistance {
+            print("   ❌ Location exceeds max allowed, rejecting")
             return false
         }
+        print("   ✅ Location check passed")
 
         // Ignore pan gesture when the navigation controller is currently in transition.
         // 使用KVC访问私有属性 _isTransitioning
         if let isTransitioning = navigationController.value(forKey: "_isTransitioning") as? Bool,
            isTransitioning {
+            print("   ❌ Navigation is transitioning, rejecting")
             return false
         }
+        print("   ✅ Transition check passed")
 
         // Prevent calling the handler when the gesture begins in an opposite direction.
         let translation = panGestureRecognizer.translation(in: panGestureRecognizer.view)
         let isLeftToRight = UIApplication.shared.userInterfaceLayoutDirection == .leftToRight
         let multiplier: CGFloat = isLeftToRight ? 1 : -1
+        print("   🔍 Direction check: translation.x=\(translation.x), multiplier=\(multiplier), result=\(translation.x * multiplier)")
 
         if (translation.x * multiplier) <= 0 {
+            print("   ❌ Wrong direction, rejecting")
             return false
         }
+        print("   ✅ Direction check passed")
 
         // Call custom block if exists
         if let shouldBeginBlock = topViewController.fm_shouldBeginBlock {
-            return shouldBeginBlock()
+            let result = shouldBeginBlock()
+            print("   🔍 Custom block returned: \(result)")
+            return result
         }
 
+        print("   ✅ ALL CHECKS PASSED - Gesture will begin!")
         return true
     }
 }
