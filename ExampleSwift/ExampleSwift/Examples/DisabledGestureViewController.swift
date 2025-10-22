@@ -17,6 +17,8 @@ class DisabledGestureViewController: UIViewController {
 
         // 禁用滑动返回
         fm_interactivePopDisabled = true
+        print("✅ [DisabledGestureViewController] Set fm_interactivePopDisabled = true")
+        print("✅ [DisabledGestureViewController] Verify: fm_interactivePopDisabled = \(fm_interactivePopDisabled)")
 
         let label = UILabel()
         label.text = """

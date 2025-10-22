@@ -24,8 +24,9 @@ class CustomLogicViewController: UIViewController {
         view.backgroundColor = .systemBackground
 
         setupUI()
+        setupNavigationBar()
 
-        // 设置自定义返回逻辑
+        // 设置自定义返回逻辑（拦截手势返回）
         fm_shouldBeginBlock = { [weak self] in
             guard let self = self else { return true }
 
@@ -34,6 +35,28 @@ class CustomLogicViewController: UIViewController {
                 return false  // 不允许返回
             }
             return true  // 允许返回
+        }
+    }
+
+    // MARK: - Navigation Bar Setup
+
+    private func setupNavigationBar() {
+        // 自定义返回按钮，拦截点击事件
+        let backButton = UIBarButtonItem(
+            title: "返回",
+            style: .plain,
+            target: self,
+            action: #selector(backButtonTapped)
+        )
+        navigationItem.leftBarButtonItem = backButton
+    }
+
+    @objc private func backButtonTapped() {
+        // 点击导航栏返回按钮时也检查未保存内容
+        if hasUnsavedChanges {
+            showSaveAlert()
+        } else {
+            navigationController?.popViewController(animated: true)
         }
     }
 
