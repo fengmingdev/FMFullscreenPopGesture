@@ -54,10 +54,10 @@ import ObjectiveC
         struct Static {
             static let token: Void = {
                 // 设置UIViewController的Method Swizzling
-                setupViewControllerSwizzling()
+                FMFullscreenPopGesture.setupViewControllerSwizzling()
 
                 // 设置UINavigationController的Method Swizzling
-                setupNavigationControllerSwizzling()
+                FMFullscreenPopGesture.setupNavigationControllerSwizzling()
             }()
         }
         _ = Static.token

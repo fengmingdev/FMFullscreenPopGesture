@@ -109,7 +109,7 @@ public extension UINavigationController {
     // MARK: - Swizzled Methods
 
     /// 对应Objective-C的 - (void)fd_pushViewController:(UIViewController *)viewController animated:(BOOL)animated
-    @objc private dynamic func fm_pushViewController(_ viewController: UIViewController, animated: Bool) {
+    @objc internal dynamic func fm_pushViewController(_ viewController: UIViewController, animated: Bool) {
         // 首次push时设置手势识别器
         if let gestureRecognizers = interactivePopGestureRecognizer?.view?.gestureRecognizers,
            !gestureRecognizers.contains(fm_fullscreenPopGestureRecognizer) {

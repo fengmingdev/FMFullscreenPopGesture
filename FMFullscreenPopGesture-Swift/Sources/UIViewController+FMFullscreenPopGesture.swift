@@ -58,7 +58,7 @@ internal extension UIViewController {
     // MARK: - Swizzled Methods
 
     /// 对应Objective-C的 - (void)fd_viewWillAppear:(BOOL)animated
-    @objc private dynamic func fm_viewWillAppear(_ animated: Bool) {
+    @objc internal dynamic func fm_viewWillAppear(_ animated: Bool) {
         // Forward to primary implementation.
         // 注意：由于方法已交换，这里调用的实际是原始的viewWillAppear:
         fm_viewWillAppear(animated)
@@ -70,7 +70,7 @@ internal extension UIViewController {
     }
 
     /// 对应Objective-C的 - (void)fd_viewWillDisappear:(BOOL)animated
-    @objc private dynamic func fm_viewWillDisappear(_ animated: Bool) {
+    @objc internal dynamic func fm_viewWillDisappear(_ animated: Bool) {
         // Forward to primary implementation.
         // 注意：由于方法已交换，这里调用的实际是原始的viewWillDisappear:
         fm_viewWillDisappear(animated)
