@@ -128,14 +128,10 @@ public extension UINavigationController {
 
             // 设置代理
             fm_fullscreenPopGestureRecognizer.delegate = fm_popGestureRecognizerDelegate
-
-            // Disable the onboard gesture recognizer.
-            interactivePopGestureRecognizer?.isEnabled = false
-
-            print("🎯 [FMFullscreenPopGesture] Setup completed:")
-            print("   - Custom gesture added: \(fm_fullscreenPopGestureRecognizer)")
-            print("   - System gesture disabled: \(interactivePopGestureRecognizer?.isEnabled == false)")
         }
+
+        // IMPORTANT: 每次push都要确保系统手势被禁用，因为系统可能会重新启用它
+        interactivePopGestureRecognizer?.isEnabled = false
 
         // Handle preferred navigation bar appearance.
         fm_setupViewControllerBasedNavigationBarAppearanceIfNeeded(appearingViewController: viewController)

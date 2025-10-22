@@ -17,14 +17,7 @@ class DisabledGestureViewController: UIViewController {
 
         // 禁用滑动返回
         fm_interactivePopDisabled = true
-        print("✅ [DisabledGestureViewController] Set fm_interactivePopDisabled = true")
-        print("✅ [DisabledGestureViewController] Verify: fm_interactivePopDisabled = \(fm_interactivePopDisabled)")
-
-        // 额外检查: 验证系统手势是否被禁用
-        if let navController = navigationController {
-            print("🔍 [DisabledGestureViewController] System gesture enabled: \(navController.interactivePopGestureRecognizer?.isEnabled ?? false)")
-            print("🔍 [DisabledGestureViewController] Custom gesture: \(navController.fm_fullscreenPopGestureRecognizer)")
-        }
+        print("✅ [DisabledGestureViewController] viewDidLoad - fm_interactivePopDisabled = true")
 
         let label = UILabel()
         label.text = """
@@ -48,5 +41,19 @@ class DisabledGestureViewController: UIViewController {
             label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
         ])
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("✅ [DisabledGestureViewController] viewWillAppear - System gesture enabled: \(navigationController?.interactivePopGestureRecognizer?.isEnabled ?? true)")
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("✅ [DisabledGestureViewController] viewDidAppear - System gesture enabled: \(navigationController?.interactivePopGestureRecognizer?.isEnabled ?? true)")
+    }
+    
+    deinit {
+        print("DisabledGestureViewController deinit")
     }
 }

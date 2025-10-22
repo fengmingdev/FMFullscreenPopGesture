@@ -50,12 +50,7 @@ internal final class FMFullscreenPopGestureRecognizerDelegate: NSObject, UIGestu
             return false
         }
 
-        // Debug logging
-        print("🔍 [FMFullscreenPopGesture] Checking gesture for: \(type(of: topViewController))")
-        print("🔍 [FMFullscreenPopGesture] fm_interactivePopDisabled = \(topViewController.fm_interactivePopDisabled)")
-
         if topViewController.fm_interactivePopDisabled {
-            print("🚫 [FMFullscreenPopGesture] Gesture DISABLED for this view controller")
             return false
         }
 

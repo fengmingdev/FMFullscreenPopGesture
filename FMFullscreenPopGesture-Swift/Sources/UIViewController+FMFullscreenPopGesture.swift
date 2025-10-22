@@ -67,6 +67,11 @@ internal extension UIViewController {
         if let block = fm_willAppearInjectBlock {
             block(self, animated)
         }
+
+        // IMPORTANT: 确保系统手势始终被禁用，使用我们的自定义手势
+        if let navigationController = self.navigationController {
+            navigationController.interactivePopGestureRecognizer?.isEnabled = false
+        }
     }
 
     /// 对应Objective-C的 - (void)fd_viewWillDisappear:(BOOL)animated
